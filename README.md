@@ -1,3 +1,3 @@
 #README
 
-this repo is just my Data Structure homework.
+This repo is just my Data Structure homework.
