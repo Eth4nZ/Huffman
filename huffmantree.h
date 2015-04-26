@@ -13,7 +13,7 @@ class HuffmanTree {
 template <class T>
 HuffmanTree<T>:: HuffmanTree(T weight[], int n) {
     MinHeap<HuffmanTreeNode<T>> heap(n);
-    HuffmanTreeNode<T> *parent, fistchild, secondchild;
+    HuffmanTreeNode<T> *parent, firstchild, secondchild;
     HuffmanTreeNode<T> *NodeList = new HuffmanTreeNode<T>[n];
     for (int i=0; i<n; i++) {
         NodeList[i].info = weight[i];
