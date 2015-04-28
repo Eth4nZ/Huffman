@@ -3,7 +3,7 @@ CFLAGS = -c -Wall
 
 SOURCES = main.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = hhh
+EXECUTABLE = a
 
 all: $(SOURCES) $(EXECUTABLE)
 	    
@@ -13,7 +13,10 @@ $(EXECUTABLE): $(OBJECTS)
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
 
+.phony: clean
 
+clean:
+	-rm *o hhh
 
 
 #all: hhh

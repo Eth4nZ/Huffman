@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    HuffmanTreeNode h = new HuffmanTreeNode();
     return 0;
 }
 

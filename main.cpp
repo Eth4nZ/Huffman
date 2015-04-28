@@ -5,8 +5,9 @@ using namespace std;
 
 int main(){
     char ch;
-    fstream fin("test.md", fstream::in);
+    ifstream fin("test.md", fstream::in);
+    ofstream fout("test.out",fstream::out);
     while (fin >> noskipws >> ch){
-        cout << ch;
+        fout << ch;
     }
 }
