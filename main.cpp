@@ -7,12 +7,22 @@ using namespace std;
 
 int main(){
     ifstream fin("test.md", fstream::in);
-    /*ofstream fout("test.out",fstream::out);
+    //not contain \n
+    /*string temp;
+    string s = "";
+    while(getline(fin,temp)){
+        s += temp;
+    } */ 
+
+    //contain \n
+    char ch;
+    string s = "";
     while (fin >> noskipws >> ch){
-        fout << ch;
+        s += ch;
     }
-    */
-    string s="This is an example of Huffman encoding";
+    
+    //ofstream fout("test.out",fstream::out);
+
     Huffman* test = new Huffman(s);
     test->displayTable();
     test->displayHuffmanTable();
