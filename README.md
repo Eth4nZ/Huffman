@@ -2,4 +2,4 @@
 
 My Data Structure homework.
 
-Trying to understand *minHeap* and *HuffmanTree* in this repo.
+Trying to understand _minHeap_ and _HuffmanTree_ in this repo.
