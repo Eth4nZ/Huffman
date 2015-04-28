@@ -1,3 +1,5 @@
 #README
 
-This repo is just my Data Structure homework.
+My Data Structure homework.
+
+Trying to understand *minHeap* and *HuffmanTree* in this repo.
