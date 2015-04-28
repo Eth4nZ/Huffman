@@ -16,7 +16,7 @@ $(EXECUTABLE): $(OBJECTS)
 .phony: clean
 
 clean:
-	-rm *o hhh
+	-rm *o a
 
 
 #all: hhh
