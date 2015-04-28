@@ -10,7 +10,7 @@ int main(){
     cout << "e.....Encode test_raw.md to test_encoded.md" << endl;
     cout << "d.....Decode test_encoded.md to test_decoded.md" << endl;
     cout << "......Other key to exit" << endl;
-    cout << "select:";
+    cout << "select: ";
     cin >> x;
     if(x == 'e'){
         ifstream fin("test_raw.md", fstream::in);
@@ -21,18 +21,22 @@ int main(){
             s += ch;
         }
 
-        Huffman* test = new Huffman(s);
-        test->displayTable();
-        test->displayHuffmanTable();
-        string code = test->getEncodedString();
+        Huffman* enctest = new Huffman(s);
+        enctest->displayTable();
+        enctest->displayHuffmanTable();
+        string code = enctest->getEncodedString();
         cout << "Encoded string: " << code << endl;
-        fout << test->getHuffmanTableString() << endl;;
+        fout << enctest->getHuffmanTableString() << endl;;
         fout << code;
-        cout << "Decoded string: " << test->decodeString(code) << endl;
-        delete test;
+        cout << "Decoded string: " << enctest->decodeString(code) << endl;
+        delete enctest;
     }
     else{
         if(x == 'd'){
+            ifstream fin("test_encoded.md", fstream::in);
+            ofstream fout("test_decoded.md",fstream::out);
+            string s = "";
+            Huffman* dectest = new Huffman(s,0);
         }
         else
             cout << "exit...." << endl;
