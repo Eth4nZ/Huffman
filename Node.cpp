@@ -17,7 +17,7 @@ Node::Node(Node* left, Node* right){
     this->left = left;
     this->right = right;
     frequency = left->getFrequency() + right->getFrequency();
-    //letter = NULL;
+    letter = NULL;
 }
 
 Node::~Node(){

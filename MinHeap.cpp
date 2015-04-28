@@ -36,7 +36,7 @@ void MinHeap::insert(Node* rhs){
 void MinHeap::percUp(int curIndex){
     int parentIndex;
     Node* temp;
-    if(curIndex !=0){
+    if(curIndex != 0){
         parentIndex = (curIndex-1)/2;
         if(storage[parentIndex]->getFrequency() >
                  storage[curIndex]->getFrequency()){
@@ -62,7 +62,7 @@ int MinHeap::numChildren(int index){
 
 void MinHeap::percDown(int curIndex){
     int children = 0;
-    if(children = numChildren(children)){
+    if(children == numChildren(curIndex)){
         Node* temp;
         int left = 2*curIndex+1, right = left+1;
         switch(children){
@@ -72,6 +72,7 @@ void MinHeap::percDown(int curIndex){
                     temp = storage[left];
                     storage[left] = storage[curIndex];
                     storage[curIndex] = temp;
+                    percDown(left);
                 }
                 break;
             case 2:
@@ -82,10 +83,10 @@ void MinHeap::percDown(int curIndex){
                     int rhsIndex = left;
                     if(storage[left]->getFrequency()
                              > storage[right]->getFrequency())
-                        rhsIndex++;
+                        rhsIndex = right;
                     temp = storage[rhsIndex];
-                    storage[curIndex] = storage[rhsIndex];
-                    storage[rhsIndex] = temp;
+                    storage[rhsIndex] = storage[curIndex];
+                    storage[curIndex] = temp;
                     percDown(rhsIndex);
                 }
                 break;
@@ -177,9 +178,11 @@ void MinHeap::preOrder(int curIndex){
 }
 
 void MinHeap::linearDisplay(){
+    cout << "linearDisplay" << endl;
     for(int i = 0; i < heapSize; i++)
         cout << *storage[i] << " ";
     cout << endl;
+    cout << "linearDisplay" << endl;
 }
 
 void MinHeap::emptyHeap(){
@@ -189,4 +192,3 @@ void MinHeap::emptyHeap(){
     }
 }
 
-            

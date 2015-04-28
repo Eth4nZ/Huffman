@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -c -Wall
 
-SOURCES = main.cpp Node.cpp MinHeap.cpp
+SOURCES = main.cpp Node.cpp MinHeap.cpp Huffman.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = a
 

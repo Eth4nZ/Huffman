@@ -1,6 +1,7 @@
 #include <iostream>
+#include <string>
 #include <fstream>
-#include "Node.cpp"
+#include "Huffman.h"
 
 using namespace std;
 
@@ -11,8 +12,16 @@ int main(){
         fout << ch;
     }
     */
-
-    Node* n = new Node();
-    Node* n1 = new Node();
-    n=n1;
+    string s="This is an example of Huffman encoding";
+    Huffman* test = new Huffman(s);
+//    test->displayTable();
+//    test->displayHuffmanTable();
+    string code = test->getEncodedString();
+    cout << "Encoded string: " << code << endl;
+    cout << "Decoded string: " << test->decodeString(code) << endl;
+    delete test;
+    return 0;
 }
+
+
+
