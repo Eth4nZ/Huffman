@@ -6,11 +6,15 @@ using namespace std;
 Huffman::Huffman(string src){
     data = src;
     encodedData = "";
+    huffmanTableString = "";
     heap = new MinHeap(data.length());
     buildTable();
     buildHeap();
 }
 
+Huffman::Huffman(string src, int i){
+    buildHuffmanTableFromString(src);
+}
 Huffman::~Huffman(){
     if(heap != NULL)
         delete heap;
@@ -24,6 +28,27 @@ void Huffman::buildTable(){
         }
         else
             frequencyTable[c]++;
+    }
+}
+
+void Huffman::buildHuffmanTableFromString(string src){
+    size_t lastBlock = 0;
+    int x=0;
+    char c;
+    string temp;
+    for(size_t i = 0; i < src.length(); i++){
+        if(src.at(i) == ' '){
+            switch(x){
+                case 0:
+                    c = src.at(i);
+                    break;
+                case 1:
+                    temp = src.substr(lastBlock, i-lastBlock);
+                    break;
+                }
+            lastBlock = i+1;
+            huffmanTable.insert(pair<char, string>(c, temp));
+        }
     }
 }
 
@@ -54,6 +79,10 @@ void Huffman::getEncoding(Node* root, string code){
         root->setCode(code);
         //cout << root->getLetter() << " " << root->getFrequency() << " " << code << endl; //debug
         huffmanTable.insert(pair<char, string>(root->getLetter(), code));
+        huffmanTableString += root->getLetter();
+        huffmanTableString.append(" ");
+        huffmanTableString += code;
+        huffmanTableString.append(" ");
         return;
     }
     else{
