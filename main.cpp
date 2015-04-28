@@ -12,7 +12,7 @@ int main(){
         fout << ch;
     }
     */
-    string s="This is an example of Huffman encoding";
+    string s="A aaaa bbbb cc fox jumps over the lazy dog.";
     Huffman* test = new Huffman(s);
     test->displayTable();
     test->displayHuffmanTable();
