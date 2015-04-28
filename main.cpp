@@ -14,8 +14,8 @@ int main(){
     */
     string s="This is an example of Huffman encoding";
     Huffman* test = new Huffman(s);
-//    test->displayTable();
-//    test->displayHuffmanTable();
+    test->displayTable();
+    test->displayHuffmanTable();
     string code = test->getEncodedString();
     cout << "Encoded string: " << code << endl;
     cout << "Decoded string: " << test->decodeString(code) << endl;

@@ -32,7 +32,8 @@ void Huffman::buildHeap(){
             it != frequencyTable.end(); ++it){
         heap->insert(new Node(it->first, it->second));
     }
-    heap->linearDisplay();
+    //cout << "heapSize: " << heap->getHeapSize() << endl; //debug
+    //heap->linearDisplay(); //debug
     //pop 2 and insert 1 at a time, until get only one left;
     while(!heap->isEmpty()){
         if(heap->getHeapSize() == 1)
@@ -41,6 +42,8 @@ void Huffman::buildHeap(){
         Node* right = heap->removeMin();
         heap->insert(new Node(left, right));
     }
+    //cout << "heapSize: " << heap->getHeapSize() << endl; //debug
+    //heap->linearDisplay(); //debug
     string code = "";
     getEncoding(heap->getRoot(), code);
     encode();
@@ -49,7 +52,7 @@ void Huffman::buildHeap(){
 void Huffman::getEncoding(Node* root, string code){
     if(root->getLeft() == NULL){
         root->setCode(code);
-        cout << root->getLetter() << " " << root->getFrequency() << " " << code << endl;
+        //cout << root->getLetter() << " " << root->getFrequency() << " " << code << endl; //debug
         huffmanTable.insert(pair<char, string>(root->getLetter(), code));
         return;
     }

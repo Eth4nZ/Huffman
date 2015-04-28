@@ -19,7 +19,7 @@ MinHeap::~MinHeap(){
         }
         delete[] storage;
         //for debug purposes
-        cout << "heap size is (should be zero): " << heapSize << endl;
+        //cout << "heap size is (should be zero): " << heapSize << endl;
     }
 }
 
@@ -36,7 +36,7 @@ void MinHeap::insert(Node* rhs){
 void MinHeap::percUp(int curIndex){
     int parentIndex;
     Node* temp;
-    if(curIndex != 0){
+    if(curIndex != 0){ //not at the top
         parentIndex = (curIndex-1)/2;
         if(storage[parentIndex]->getFrequency() >
                  storage[curIndex]->getFrequency()){
@@ -61,8 +61,8 @@ int MinHeap::numChildren(int index){
 }
 
 void MinHeap::percDown(int curIndex){
-    int children = 0;
-    if(children == numChildren(curIndex)){
+    int children = numChildren(curIndex);
+    if(children != 0){
         Node* temp;
         int left = 2*curIndex+1, right = left+1;
         switch(children){
