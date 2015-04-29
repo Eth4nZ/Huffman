@@ -12,14 +12,14 @@ private:
     string data;
     string encodedData;
     string huffmanTableString;
-    string outputData;
+    string outPutData;
     MinHeap* heap;
     map<char, int> frequencyTable;
     map<char, string> huffmanTable;
-    map<char, string> outputTable;
+    map<char, string> outPutTable;
     void buildTable();
     void buildHeap();
-    void buildOutputTable();
+    void buildOutPutTable();
     void getEncoding(Node*, string);
     void encode();
     void codeOutput(string);
@@ -34,7 +34,7 @@ public:
         return encodedData;
     }
     string getOutPutData(){
-        return outputData;
+        return outPutData;
     }
     string getHuffmanTableString(){
         return huffmanTableString;

@@ -6,11 +6,12 @@ using namespace std;
 Huffman::Huffman(string src){
     data = src;
     encodedData = "";
+    outPutData = "";
     huffmanTableString = "";
     heap = new MinHeap(data.length());
     buildTable();
     buildHeap();
-    buildOutputTable();
+    buildOutPutTable();
     codeOutput(encodedData);
 }
 
@@ -33,34 +34,36 @@ void Huffman::buildTable(){
     }
 }
 
-void Huffman::buildOutputTable(){
-    outputTable.insert(pair<char,string>('0',"0000"));
-    outputTable.insert(pair<char,string>('1',"0001"));
-    outputTable.insert(pair<char,string>('2',"0010"));
-    outputTable.insert(pair<char,string>('3',"0011"));
-    outputTable.insert(pair<char,string>('4',"0100"));
-    outputTable.insert(pair<char,string>('5',"0101"));
-    outputTable.insert(pair<char,string>('6',"0110"));
-    outputTable.insert(pair<char,string>('7',"0111"));
-    outputTable.insert(pair<char,string>('8',"1000"));
-    outputTable.insert(pair<char,string>('9',"1001"));
-    outputTable.insert(pair<char,string>('a',"1010"));
-    outputTable.insert(pair<char,string>('b',"1011"));
-    outputTable.insert(pair<char,string>('c',"1100"));
-    outputTable.insert(pair<char,string>('d',"1101"));
-    outputTable.insert(pair<char,string>('e',"1110"));
-    outputTable.insert(pair<char,string>('f',"1111"));
+void Huffman::buildOutPutTable(){
+    outPutTable.insert(pair<char,string>('0',"0000"));
+    outPutTable.insert(pair<char,string>('1',"0001"));
+    outPutTable.insert(pair<char,string>('2',"0010"));
+    outPutTable.insert(pair<char,string>('3',"0011"));
+    outPutTable.insert(pair<char,string>('4',"0100"));
+    outPutTable.insert(pair<char,string>('5',"0101"));
+    outPutTable.insert(pair<char,string>('6',"0110"));
+    outPutTable.insert(pair<char,string>('7',"0111"));
+    outPutTable.insert(pair<char,string>('8',"1000"));
+    outPutTable.insert(pair<char,string>('9',"1001"));
+    outPutTable.insert(pair<char,string>('a',"1010"));
+    outPutTable.insert(pair<char,string>('b',"1011"));
+    outPutTable.insert(pair<char,string>('c',"1100"));
+    outPutTable.insert(pair<char,string>('d',"1101"));
+    outPutTable.insert(pair<char,string>('e',"1110"));
+    outPutTable.insert(pair<char,string>('f',"1111"));
 }
 
 void Huffman::codeOutput(string src){
-    outputData = "";
     for(size_t i = 0; i < src.length(); i += 4){
-        string temp = src.substr(i, i+3);
-        for(map<char, string>:: iterator it = outputTable.begin();
-                it != outputTable.end(); ++it){
-            if(it->second == temp){
-                outputData += (it->first);
-                break;
+        if(src.length()-i >= 4){
+            string temp = src.substr(i, 4);
+            cout << temp << endl;
+            for(map<char, string>:: iterator it = outPutTable.begin();
+                    it != outPutTable.end(); ++it){
+                if(it->second == temp){
+                    outPutData += (it->first);
+                    break;
+                }
             }
         }
     }
