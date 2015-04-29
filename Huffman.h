@@ -12,13 +12,17 @@ private:
     string data;
     string encodedData;
     string huffmanTableString;
+    string outputData;
     MinHeap* heap;
     map<char, int> frequencyTable;
     map<char, string> huffmanTable;
+    map<char, string> outputTable;
     void buildTable();
     void buildHeap();
+    void buildOutputTable();
     void getEncoding(Node*, string);
     void encode();
+    void codeOutput(string);
 public:
     Huffman(string);
     Huffman(string,int);
@@ -28,6 +32,9 @@ public:
     }
     string getEncodedString(){
         return encodedData;
+    }
+    string getOutPutData(){
+        return outputData;
     }
     string getHuffmanTableString(){
         return huffmanTableString;

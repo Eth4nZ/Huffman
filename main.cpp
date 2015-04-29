@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <bitset>
 #include "Huffman.h"
 
 using namespace std;
@@ -26,9 +27,10 @@ int main(){
         enctest->displayHuffmanTable();
         string code = enctest->getEncodedString();
         cout << "Encoded string: " << code << endl;
-        fout << enctest->getHuffmanTableString() << endl;;
-        fout << code;
-        cout << "Decoded string: " << enctest->decodeString(code) << endl;
+        //fout << enctest->getHuffmanTableString() << endl;;
+        //fout << code;
+        fout << enctest->getOutPutData();
+        //cout << "Decoded string: " << enctest->decodeString(code) << endl;
         delete enctest;
     }
     else{
